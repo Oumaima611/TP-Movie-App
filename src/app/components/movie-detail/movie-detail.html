@@ -1,0 +1,54 @@
+@if (movieService.selectedMovie(); as movie) {
+  <div class="detail">
+    <img
+      [src]="`https://image.tmdb.org/t/p/w500${movie.poster_path}`"
+      [alt]="movie.title"
+    />
+
+    <div class="info">
+      <h2>{{ movie.title }}</h2>
+
+      <div class="cards">
+        <div class="card">
+          <h3>Original title</h3>
+          <p>{{ movie.original_title }}</p>
+        </div>
+
+        <div class="card">
+          <h3>Original language</h3>
+          <p>{{ movie.original_language }}</p>
+        </div>
+
+        <div class="card">
+          <h3>Release date</h3>
+          <p>{{ movie.release_date }}</p>
+        </div>
+
+        <div class="card">
+          <h3>Vote average</h3>
+          <p>{{ movie.vote_average }}</p>
+        </div>
+
+        <div class="card">
+          <h3>Vote count</h3>
+          <p>{{ movie.vote_count }}</p>
+        </div>
+
+        <div class="card">
+          <h3>Popularity</h3>
+          <p>{{ movie.popularity }}</p>
+        </div>
+      </div>
+
+      <div class="overview">
+        <h3>Overview</h3>
+        <p>{{ movie.overview }}</p>
+      </div>
+
+      <div class="actions">
+        <button class="btn" (click)="backToMovieList()">Back</button>
+        <button class="btn" (click)="addToWish(movie)">Add to wish list</button>
+      </div>
+    </div>
+  </div>
+}

@@ -1,0 +1,22 @@
+
+<app-search-bar (titleChange)="searchMovieByTitle($event)" />
+<div class="container">
+    @if (movieService.movieList().length > 0) {
+        @for (movie of movieService.movieList(); track movie.id) {
+
+            <div class="movie-card" (click)="navigateTo(movie)">
+                <div>
+                    <img [src]="`https://image.tmdb.org/t/p/original/${movie.poster_path}`" alt="Movie Poster" />
+                </div>
+                <div class="movie-details">
+                    <h2>
+                        {{movie.title}}
+                    </h2>
+                </div>
+            </div>
+
+        }
+    } @else {
+        <p class="message">Aucun film trouvé.</p>
+    }
+</div>
